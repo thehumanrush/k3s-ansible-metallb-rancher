@@ -1,5 +1,6 @@
 Install k3s using ansible, reference : https://github.com/techno-tim/k3s-ansible
 
+...then...
 
 download helm at https://github.com/helm/helm/releases
 choose "Linux amd64"
