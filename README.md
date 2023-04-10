@@ -165,3 +165,7 @@ EOF
 
 kubectl apply -f svc.yml --namespace=cattle-system
 ```
+```bash
+kubectl get service -n cattle-system ranched
+```
+>this is to get the external IP of the Load Balancer for the rancher service
