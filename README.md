@@ -142,7 +142,7 @@ kubectl create namespace cattle-system
 <pre>
 helm install rancher rancher-stable/rancher \  
   --namespace cattle-system \  
-  --set hostname=ranchergit.eu.org \  
+  --set hostname=rancher.eu.org \  
   --set bootstrapPassword=QWXpnh953OOGl5 \  
   --set ingress.enabled=false \  
   --set ingress.tls.source=secret  
