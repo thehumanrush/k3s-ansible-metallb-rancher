@@ -4,7 +4,7 @@ Install k3s using ansible, reference : https://github.com/techno-tim/k3s-ansible
 
 download helm at https://github.com/helm/helm/releases
 choose "Linux amd64"
-tar -zxvf helm-<ver>-linux-amd64.tar.gz
+tar -zxvf helm-<ver>-linux-amd64.tar.gz linux-amd64/helm
 mv linux-amd64/helm /usr/local/bin/helm
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
 kubectl create namespace cattle-system

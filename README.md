@@ -133,7 +133,7 @@ This repo is really standing on the shoulders of giants. Thank you to all those 
 download helm at https://github.com/helm/helm/releases  
 choose "Linux amd64"  
 <pre>
-tar -zxvf helm-<ver>-linux-amd64.tar.gz  
+tar -zxvf helm-<ver>-linux-amd64.tar.gz linux-amd64/helm  
 mv linux-amd64/helm /usr/local/bin/helm  
 helm repo add rancher-stable https://releases.rancher.com/server-charts/stable  
 kubectl create namespace cattle-system  
