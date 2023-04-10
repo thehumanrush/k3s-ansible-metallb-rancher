@@ -1,7 +1,7 @@
 Install k3s using ansible, reference : https://github.com/techno-tim/k3s-ansible
 
 ...then...
-
+```bash
 download helm at https://github.com/helm/helm/releases
 choose "Linux amd64"
 tar -zxvf helm-<ver>-linux-amd64.tar.gz linux-amd64/helm
@@ -35,6 +35,8 @@ spec:
 EOF
 
 kubectl apply -f svc.yml --namespace=cattle-system
-
-kubectl get service -n cattle-system ranched
->> this is to get the external IP of the Load Balancer for the rancher service
+```
+```bash
+kubectl get service -n cattle-system ranched -o wide
+```
+>this is to get the external IP of the Load Balancer for the rancher service
