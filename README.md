@@ -132,40 +132,36 @@ This repo is really standing on the shoulders of giants. Thank you to all those 
 ## Install Rancher
 download helm at https://github.com/helm/helm/releases  
 choose "Linux amd64"  
-<pre>
-tar -zxvf helm-<ver>-linux-amd64.tar.gz linux-amd64/helm  
-mv linux-amd64/helm /usr/local/bin/helm  
-helm repo add rancher-stable https://releases.rancher.com/server-charts/stable  
-kubectl create namespace cattle-system  
-</pre>
+```bash
+tar -zxvf helm-<ver>-linux-amd64.tar.gz linux-amd64/helm
+mv linux-amd64/helm /usr/local/bin/helm
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+kubectl create namespace cattle-system
 
-<pre>
-helm install rancher rancher-stable/rancher \  
-  --namespace cattle-system \  
-  --set hostname=rancher.eu.org \  
-  --set bootstrapPassword=YourBootstrapPassword \  
-  --set ingress.enabled=false \  
-  --set ingress.tls.source=secret  
-</pre>
-  
-<pre>
-cat &lt;&lt;EOF > svc.yml  
-apiVersion: v1  
-kind: Service  
-metadata:  
-  name: ranched  
-spec:  
-  selector:  
-    app: rancher  
-  ports:  
-    - name: http  
-      port: 80  
-      targetPort: 80  
-    - name: https  
-      port: 443  
-      targetPort: 443  
-  type: LoadBalancer  
-EOF  
-  
-kubectl apply -f svc.yml --namespace=cattle-system  
-</pre>  
+helm install rancher rancher-stable/rancher \
+  --namespace cattle-system \
+  --set hostname=rancher.eu.org \
+  --set bootstrapPassword=YourBootstrapPassword \
+  --set ingress.enabled=false \
+  --set ingress.tls.source=secret
+
+cat <<EOF > svc.yml
+apiVersion: v1
+kind: Service
+metadata:
+  name: ranched
+spec:
+  selector:
+    app: rancher
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80
+    - name: https
+      port: 443
+      targetPort: 443
+  type: LoadBalancer
+EOF
+
+kubectl apply -f svc.yml --namespace=cattle-system
+```
