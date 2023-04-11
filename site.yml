@@ -1,4 +1,8 @@
 ---
+- hosts: k3s_cluster
+  become: true
+  roles:
+    - role: allowrootssh
 
 - hosts: proxmox
   gather_facts: true
@@ -34,3 +38,13 @@
   roles:
     - role: k3s/post
       become: true
+
+- hosts: master[0]
+  become: true
+  roles:
+    - role: helm
+
+- hosts: master[0]
+  become: true
+  roles:
+    - role: rancher

@@ -82,3 +82,8 @@ proxmox_lxc_ct_ids:
   - 202
   - 203
   - 204
+
+# rancher dns name
+rancher_dns_name: "rancher.local.example.com"
+# rancher bootstrap password
+rancher_bootstrap_password: "YourBootStrapPassword"

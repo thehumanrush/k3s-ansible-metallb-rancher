@@ -1,0 +1,21 @@
+- name: Enable Root Login
+  lineinfile:
+        dest: /etc/ssh/sshd_config
+        regexp: '^[#]?PermitRootLogin.*'
+        line: "PermitRootLogin yes"
+        state: present
+        backup: yes
+  become: yes
+  notify:
+    - restart ssh
+
+- name: Copy public key from current user to root
+  copy:
+    src: /home/{{ ansible_ssh_user }}/.ssh/authorized_keys
+    remote_src: true
+    dest: /root/.ssh/authorized_keys
+    force: true
+    owner: root
+    group: root
+    mode: '0600'
+  become: yes
