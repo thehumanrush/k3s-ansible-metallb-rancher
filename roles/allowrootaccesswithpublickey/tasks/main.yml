@@ -6,8 +6,7 @@
         state: present
         backup: yes
   become: yes
-  notify:
-    - restart ssh
+  notify: restart ssh
 
 - name: Copy public key from current user to root
   copy:
